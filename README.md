@@ -40,5 +40,5 @@ With these steps, you should have the necessary .pem files (ca.crt, server/cert.
       - rabbitmq_ssl_cacertfile=/cert_rabbitmq/ca.crt
 ## Volumes
       - /etc/ssl/certs/:/cert_rabbitmq
-      - /etc/ssl/rabbitmq/:/etc/rabbitmq/conf.d/
-
+## Moving Rabbitmq Conf file which has SSL File path and Encryption details for SSL. File is located in conf/rabbitmq.conf 
+      - RUN mv conf/rabbitmq.conf /etc/rabbitmq/conf.d/
