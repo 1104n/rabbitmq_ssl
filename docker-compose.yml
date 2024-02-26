@@ -1,0 +1,24 @@
+version: '3'
+services:
+  ssl_rabbitmq:
+    tty: true
+    build: .
+    container_name: ssl_rabbitmq
+    environment:
+      - rabbitmq_ssl_certfile=/cert_rabbitmq/cert.pem
+      - rabbitmq_ssl_keyfile=/cert_rabbitmq/key.pem
+      - rabbitmq_ssl_cacertfile=/cert_rabbitmq/ca.crt
+    hostname: ssl_rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      - "15671:15671"
+      - "5671:5671"
+    volumes:
+      - /etc/ssl/certs/:/cert_rabbitmq/     ## rabbitmq ssl cert files to rabbitmq to read
+    networks:
+      networkname:
+        ipv4_address: 172.18.0.1  ##Docker ip
+networks:
+  networkname:
+    external: true
