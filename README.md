@@ -1,4 +1,4 @@
-# rabbitmq_ssl
+# RabbitMQ with SSL Configuration With Docker 
 Enabling SSL for Rabbitmq
 
 To create the .pem files required for RabbitMQ SSL configuration, you typically need to generate SSL certificates. 
